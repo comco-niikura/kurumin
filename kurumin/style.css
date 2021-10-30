@@ -179,6 +179,8 @@ header {
 .admin_header {
   color: #fff;
   background-color: #000;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo {

@@ -46,6 +46,7 @@
         <div class="logo">
             <img src="<?php echo get_template_directory_uri();?>/imgs/family01.png"><p>くるみん申請(管理者)</p>
         </div>
+        <input type="submit" class="button approval_button approval_button" value="ログアウト">
     </header>
     <?php } else { ?>
     <header>
