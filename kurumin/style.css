@@ -1,0 +1,497 @@
+/*
+Theme Name: Kurumin
+Theme URI: https://comco.co.jp
+Description: お申し込みサイトのテーマです。
+Version: 1.0
+Author: COMCO
+Author URI: https://comco.co.jp
+*/
+
+/*
+ * Globals
+ */
+
+@font-face {
+  /*フォントの名前*/
+  font-family: "hannari";
+  /*フォントファイルへのパス（複数指定の場合、上から順に読み込まれる）*/
+  src: url("./fonts/HannariMincho-Regular.otf") format("opentype");
+}
+@font-face {
+  /*フォントの名前*/
+  font-family: "ShipporiMincho";
+  /*フォントファイルへのパス（複数指定の場合、上から順に読み込まれる）*/
+  src: url("./fonts/ShipporiMincho-Bold.otf") format("opentype");
+}
+
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #191919;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  font-family: "Meiryo UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN","Yu Gothic UI", "MS PGothic", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+/*  font-size: .92rem; */
+  font-size: 14px;
+  letter-spacing: .05rem;
+  animation: fadein 1s forwards;
+}
+
+@keyframes fadein {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+p {
+  text-align: justify;
+}
+
+.button, .back_button, .approval_button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 1rem;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 31px;   /* 余白       */
+  background    : #000066;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #000066;    /* 枠の指定 */
+}
+.button:hover, .back_button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;
+  background    : #ffffff;     /* 文字色     */
+}
+.button:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.approval_button {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #000;
+    background    : #FFA500;
+}
+.no_approval_button {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #FFF;
+    background    : #000;
+}
+
+.back_button {
+    background    : #D3D3D3;     /* 背景色     */
+    color: #000;
+}
+.back_button:hover {
+    color         : #000066;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}
+
+table{
+  width: 100%;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+table tr {
+	background: #fff;
+}
+table tr:nth-child(odd) {
+	background: #eee;
+}
+
+table th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  padding: 10px 0;
+}
+
+table td{
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  padding: 10px 10px;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+
+
+
+/*header*/
+header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background-color: yellow;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+.admin_header {
+  color: #fff;
+  background-color: #000;
+}
+
+.logo {
+/*  position: absolute; */
+  float: left;
+  width:300px;
+  height: 64px;
+  line-height: 64px;
+  font-size: 1.4rem;
+  top: 0;
+  left: 10rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-align: left;
+  z-index: 6;
+}
+.logo img {
+    margin: 10px 5px;
+    height: 40px;
+    float: left;
+}
+.logo p {
+    float: left;
+}
+.menu_wrap{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: calc(100% - 300px);
+    height: 64px;
+    float: right;
+}
+nav.main_menu {
+    padding: 0;
+    width: 100%;
+    height: 64px;
+    font-size: 0.6rem;
+}
+nav.main_menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+nav.main_menu li {
+    margin: 0 5px;
+}
+
+main {
+    width:800px;
+    height:auto;
+    padding-top: 70px;
+    margin: 10px auto;
+}
+
+.content {
+    width:70%;
+    margin: 20px auto 20px;
+}
+.content h2 {
+    font-family: 'ShipporiMincho', sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.top img {
+    display: block;
+    width: 200px;
+    margin : 0 auto;
+}
+.top_msg {
+    width: 100%;
+    margin: 20px auto 50px;
+    background-color: #E7FFEC;
+    border-radius: 5px;
+}
+.form_item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 10px;
+    width: 32%;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.6rem;
+    color: #000;
+    background-color: #fff;
+
+    cursor        : pointer;
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #000066;    /* 枠の指定 */
+    border-radius: 15px;
+
+}
+.form_item:hover {
+      box-shadow    : none;
+      color         : #000;
+      background-color: #E1E9F2;
+}
+.flexiblebox {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+    align-items: center; /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center; /* 横方向中央揃え */
+}
+
+/* for Contact Form7 */
+div.screen-reader-response{
+      display: none;
+}
+span.wpcf7-not-valid-tip {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: red;
+}
+span.wpcf7-not-valid-tip::before {
+    content: "※"
+}
+
+
+.form_block {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid gray;
+}
+.form_block p {
+    margin-bottom: 20px;
+}
+.form_block_title {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.form_block_title::before {
+    content: url(./imgs/board01.png);
+    vertical-align: middle;
+    padding-right: 5px;
+}
+.label_required {
+    font-weight: 600;
+}
+.kurumin_type_blcok {
+    margin-left: 50px;
+}
+
+
+.footer_end {
+    font-size: 0.6rem;
+    width: 100%;
+    border-top: 2px solid gray;
+    padding-top: 10px;
+}
+.footer_end ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+.footer_end li {
+    margin: 0 5px;
+}
+
+.footer_end p {
+    text-align: center;
+}
+
+/* 管理者 */
+.search_cond_block {
+    margin-bottom: 50px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.search_cond_block dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+.search_cond_block dt {
+  width: 40%;
+  padding: 10px;
+  background-color: #DADADA;
+  margin: 0 0 10px 0;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_cond_block dd {
+  width: 60%;
+  padding: 10px;
+  background-color: #F3F3F3;
+  margin: 0 0 10px 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.search_cond_block .check_status_block {
+}
+.search_cond_block .check_status {
+    display: inline-block;
+    width: 150px;
+}
+
+.admin_company_list table tr:nth-child(odd){
+    background-color: #eee;
+}
+.admin_company_list table tr.company_list:hover{
+    background-color: red;
+}
+.admin_company_list table th {
+    color: #fff;
+    border: 1px solid gray;
+    background-color: #000;
+    text-align: center;
+}
+.admin_company_list table th.company_name {
+    width: 200px;
+}
+.admin_company_list table th.owner_name {
+    width: 100px;
+}
+.admin_company_list table th.tel_number {
+    width: 100px;
+}
+.admin_company_list table th.status_application {
+    width: 100px;
+}
+.admin_company_list table td {
+    padding-left: 5px;
+    border: 1px solid gray;
+}
+
+.admin_company_detail table th {
+    width: 200px;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid gray;
+}
+.admin_company_detail table td {
+    width: 600px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+.button_block {
+    margin-top: 30px;
+}
+
+
+
+table.corp_detail {
+	border: 0;
+	border-color: white;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+table.corp_detail tr {
+	border-color: #000;
+}
+table.corp_detail td.title {
+	width: 350px;
+	text-align: right;
+	padding-right: 20px;
+}
+table.corp_detail td.data {
+	width: 400px;
+}
+
+
+
+
+@media screen and (max-width : 1024px) {
+    html,
+    body {
+      font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width : 599px) {
+    html,
+    body {
+      font-size: 0.6rem;
+    }
+}
+
+/*
+@media screen and (min-width: 480px) {
+}
+
+@media screen and (min-width: 768px) {
+    html,
+    body {
+      font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 822px) {
+    html,
+    body {
+      font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    html,
+    body {
+      font-size: 12px;
+    }
+}
+*/
