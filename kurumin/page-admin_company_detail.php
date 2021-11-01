@@ -38,7 +38,7 @@
 <main>
     <div class="content">
         <form action="" method="post" onsubmit="return approval()">
-        <div class="admin_corp_detail">
+        <div class="admin_company_detail">
             <h2>申請者詳細</h2>
             <table class="corp_detail"><tbody>
                  <tr>
@@ -76,6 +76,33 @@
 <!--
             <input type="button" class="approval_button no_approval_button" value="承認解除する">　<input type="button" class="approval_button no_approval_button" value="確定解除する">
 -->
+        </div>
+        <div class="button_block">
+            <input type="submit" class="button approval_button approval_button" value="編　集">
+            <input type="button" class="back_button" onclick="history.back()" value="戻　る">
+        </div>
+        <div class="admin_company_detail">
+            <h3 class="title">お問い合わせ</h3>
+            <table class="inquery_list"><tbody>
+                 <tr>
+                     <th>内容</th>
+                     <td></td>
+                     <th>回答</th>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <th>内容</th>
+                     <td></td>
+                     <th>回答</th>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <th>内容</th>
+                     <td></td>
+                     <th>回答</th>
+                     <td></td>
+                 </tr>
+             </tbody></table>
         </div>
         <div class="button_block">
             <input type="button" class="back_button" onclick="history.back()" value="戻　る">

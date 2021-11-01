@@ -65,6 +65,10 @@ p {
   text-align: justify;
 }
 
+h3.title {
+    text-align: center;
+    font-weight: 500;
+}
 .button, .back_button, .approval_button {
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
@@ -231,7 +235,7 @@ nav.main_menu li {
 }
 
 main {
-    width:800px;
+    width:1000px;
     height:auto;
     padding-top: 70px;
     margin: 10px auto;
@@ -418,6 +422,9 @@ span.wpcf7-not-valid-tip::before {
     padding-left: 5px;
     border: 1px solid gray;
 }
+.admin_company_detail {
+    margin-bottom: 20px;
+}
 
 .admin_company_detail table th {
     width: 200px;
@@ -432,7 +439,9 @@ span.wpcf7-not-valid-tip::before {
 }
 
 .button_block {
-    margin-top: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -455,6 +464,9 @@ table.corp_detail td.data {
 	width: 400px;
 }
 
+table.inquery_list th{
+    width: 100px;
+}
 
 
 
